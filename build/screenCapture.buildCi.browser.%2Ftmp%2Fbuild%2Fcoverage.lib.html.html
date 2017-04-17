@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-gulp-header/gulp-header/index.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-gulp-header/node_modules/gulp-header/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-gulp-header">npmtest-gulp-header (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-header/gulp-header/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-header/node_modules/gulp-header/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">21.15% <small>(11 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-gulp-header/gulp-header/</a> &#187; index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-gulp-header/node_modules/gulp-header/</a> » index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -439,95 +437,96 @@ var fs = require('fs');
 * gulp-header plugin
 */
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered" >function (headerText, data) {</span>
-<span class="cstat-no" title="statement not covered" >  headerText = headerText || '';</span>
+module.exports = <span class="fstat-no" title="function not covered">function (headerText, data) {</span>
+<span class="cstat-no" title="statement not covered">  headerText = headerText || '';</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function TransformStream(file, enc, cb) {</span>
+<span class="fstat-no" title="function not covered">  function TransformStream(file, enc, cb) {</span>
     // direct support for gulp-data
-<span class="cstat-no" title="statement not covered" >    if (file.data) {</span>
-<span class="cstat-no" title="statement not covered" >      data = extend(file.data, data);</span>
+<span class="cstat-no" title="statement not covered">    if (file.data) {</span>
+<span class="cstat-no" title="statement not covered">      data = extend(file.data, data);</span>
     }
 &nbsp;
     // format template
-<span class="cstat-no" title="statement not covered" >    var filename = path.basename(file.path);</span>
-<span class="cstat-no" title="statement not covered" >    var template = data === false ? headerText : gutil.template(headerText, extend({ file: file, filename: filename }, data));</span>
+<span class="cstat-no" title="statement not covered">    var filename = path.basename(file.path);</span>
+<span class="cstat-no" title="statement not covered">    var template = data === false ? headerText : gutil.template(headerText, extend({ file: file, filename: filename }, data));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (file &amp;&amp; typeof file === 'string') {</span>
-<span class="cstat-no" title="statement not covered" >      this.push(template + file);</span>
-<span class="cstat-no" title="statement not covered" >      return cb();</span>
+<span class="cstat-no" title="statement not covered">    if (file &amp;&amp; typeof file === 'string') {</span>
+<span class="cstat-no" title="statement not covered">      this.push(template + file);</span>
+<span class="cstat-no" title="statement not covered">      return cb();</span>
     }
 &nbsp;
     // if not an existing file, passthrough
-<span class="cstat-no" title="statement not covered" >    if (!isExistingFile(file)) {</span>
-<span class="cstat-no" title="statement not covered" >      this.push(file);</span>
-<span class="cstat-no" title="statement not covered" >      return cb();</span>
+<span class="cstat-no" title="statement not covered">    if (!isExistingFile(file)) {</span>
+<span class="cstat-no" title="statement not covered">      this.push(file);</span>
+<span class="cstat-no" title="statement not covered">      return cb();</span>
     }
 &nbsp;
     // handle file stream;
-<span class="cstat-no" title="statement not covered" >    if (file.isStream()) {</span>
-<span class="cstat-no" title="statement not covered" >      var stream = through();</span>
-<span class="cstat-no" title="statement not covered" >      stream.write(new Buffer(template));</span>
-<span class="cstat-no" title="statement not covered" >      stream.on('error', this.emit.bind(this, 'error'));</span>
-<span class="cstat-no" title="statement not covered" >      file.contents = file.contents.pipe(stream);</span>
-<span class="cstat-no" title="statement not covered" >      this.push(file);</span>
-<span class="cstat-no" title="statement not covered" >      return cb();</span>
+<span class="cstat-no" title="statement not covered">    if (file.isStream()) {</span>
+<span class="cstat-no" title="statement not covered">      var stream = through();</span>
+<span class="cstat-no" title="statement not covered">      stream.write(new Buffer(template));</span>
+<span class="cstat-no" title="statement not covered">      stream.on('error', this.emit.bind(this, 'error'));</span>
+<span class="cstat-no" title="statement not covered">      file.contents = file.contents.pipe(stream);</span>
+<span class="cstat-no" title="statement not covered">      this.push(file);</span>
+<span class="cstat-no" title="statement not covered">      return cb();</span>
     }
 &nbsp;
     // variables to handle direct file content manipulation
-<span class="cstat-no" title="statement not covered" >    var concat = new Concat(true, filename);</span>
+<span class="cstat-no" title="statement not covered">    var concat = new Concat(true, filename);</span>
 &nbsp;
     // add template
-<span class="cstat-no" title="statement not covered" >    concat.add(null, new Buffer(template));</span>
+<span class="cstat-no" title="statement not covered">    concat.add(null, new Buffer(template));</span>
 &nbsp;
     // add sourcemap
-<span class="cstat-no" title="statement not covered" >    concat.add(file.relative, file.contents, file.sourceMap);</span>
+<span class="cstat-no" title="statement not covered">    concat.add(file.relative, file.contents, file.sourceMap);</span>
 &nbsp;
     // make sure streaming content is preserved
-<span class="cstat-no" title="statement not covered" >    if (file.contents &amp;&amp; !isStream(file.contents)) {</span>
-<span class="cstat-no" title="statement not covered" >      file.contents = concat.content;</span>
+<span class="cstat-no" title="statement not covered">    if (file.contents &amp;&amp; !isStream(file.contents)) {</span>
+<span class="cstat-no" title="statement not covered">      file.contents = concat.content;</span>
     }
 &nbsp;
     // apply source map
-<span class="cstat-no" title="statement not covered" >    if (concat.sourceMapping) {</span>
-<span class="cstat-no" title="statement not covered" >      file.sourceMap = JSON.parse(concat.sourceMap);</span>
+<span class="cstat-no" title="statement not covered">    if (concat.sourceMapping) {</span>
+<span class="cstat-no" title="statement not covered">      file.sourceMap = JSON.parse(concat.sourceMap);</span>
     }
 &nbsp;
     // make sure the file goes through the next gulp plugin
-<span class="cstat-no" title="statement not covered" >    this.push(file);</span>
+<span class="cstat-no" title="statement not covered">    this.push(file);</span>
 &nbsp;
     // tell the stream engine that we are done with this file
-<span class="cstat-no" title="statement not covered" >    cb();</span>
+<span class="cstat-no" title="statement not covered">    cb();</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return through.obj(TransformStream);</span>
+<span class="cstat-no" title="statement not covered">  return through.obj(TransformStream);</span>
 };
 &nbsp;
 /**
 * is stream?
 */
-<span class="fstat-no" title="function not covered" >function isStream(obj) {</span>
-<span class="cstat-no" title="statement not covered" >  return obj instanceof stream.Stream;</span>
+<span class="fstat-no" title="function not covered">function isStream(obj) {</span>
+<span class="cstat-no" title="statement not covered">  return obj instanceof stream.Stream;</span>
 }
 &nbsp;
 /**
  * Is File, and Exists
  */
-<span class="fstat-no" title="function not covered" >function isExistingFile(file) {</span>
-<span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    if (!(file &amp;&amp; typeof file === 'object')) <span class="cstat-no" title="statement not covered" >return false;</span></span>
-<span class="cstat-no" title="statement not covered" >    if (file.isDirectory()) <span class="cstat-no" title="statement not covered" >return false;</span></span>
-<span class="cstat-no" title="statement not covered" >    if (file.isStream()) <span class="cstat-no" title="statement not covered" >return true;</span></span>
-<span class="cstat-no" title="statement not covered" >    if (file.isBuffer()) <span class="cstat-no" title="statement not covered" >return true;</span></span>
-<span class="cstat-no" title="statement not covered" >    if (typeof file.contents === 'string') <span class="cstat-no" title="statement not covered" >return true;</span></span>
+<span class="fstat-no" title="function not covered">function isExistingFile(file) {</span>
+<span class="cstat-no" title="statement not covered">  try {</span>
+<span class="cstat-no" title="statement not covered">    if (!(file &amp;&amp; typeof file === 'object')) <span class="cstat-no" title="statement not covered">return false;</span></span>
+<span class="cstat-no" title="statement not covered">    if (file.isDirectory()) <span class="cstat-no" title="statement not covered">return false;</span></span>
+<span class="cstat-no" title="statement not covered">    if (file.isStream()) <span class="cstat-no" title="statement not covered">return true;</span></span>
+<span class="cstat-no" title="statement not covered">    if (file.isBuffer()) <span class="cstat-no" title="statement not covered">return true;</span></span>
+<span class="cstat-no" title="statement not covered">    if (typeof file.contents === 'string') <span class="cstat-no" title="statement not covered">return true;</span></span>
   } catch(err) {}
-<span class="cstat-no" title="statement not covered" >  return false;</span>
+<span class="cstat-no" title="statement not covered">  return false;</span>
 }
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 12:01:28 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 15:59:12 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
